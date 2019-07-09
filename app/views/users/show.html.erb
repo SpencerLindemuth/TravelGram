@@ -1,0 +1,14 @@
+<h3><%= @user.username %></h3>
+<h5><%= @user.home_city %></h5>
+<h5><%= @user.bio %></h5>
+<%= @posts.each do |post| %>
+  <img src="<%= post.image_url %>"><br>
+  <%= @user.caption %>
+  likes<%= post.likes.count %>
+<% end %>
+
+<%= button_to "update", {:controller => :users,
+:action => 'edit', :id => @user.id }, :method => :get %>
+
+<%= button_to "delete", {:controller => :users,
+:action => 'destroy', :id => @user.id }, :method => :delete %>
