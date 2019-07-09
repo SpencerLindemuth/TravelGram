@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :user_params, only: [:create]
+  before_action :user_params, only: [:create, :update]
+  before_action :require_login
+  skip_before_action :require_login, only: [:new, :create]
 
   def new
     @user = User.new
@@ -15,18 +17,18 @@ class UsersController < ApplicationController
     end
   end
 
-  def travelgram 
-  end
+  # def travelgram 
+  # end
 
-  def authenticate
-    @user = User.find_by(username: params[:user][:username], password: params[:user][:password])
-    if User.find_by(username: params[:user][:username], password: params[:user][:password])
-      redirect_to posts_path
-    else
-      flash[:new_user_message] = "No user information, please try log in again or create a new account"
-      redirect_to "/"
-    end
-  end
+  # def authenticate
+  #   @user = User.find_by(username: params[:user][:username], password: params[:user][:password])
+  #   if User.find_by(username: params[:user][:username], password: params[:user][:password])
+  #     redirect_to posts_path
+  #   else
+  #     flash[:new_user_message] = "No user information, please try log in again or create a new account"
+  #     redirect_to "/"
+  #   end
+  # end
 
   def show 
     @user = User.find(params[:id])
@@ -58,7 +60,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :bio, :home_city)
   end
 
-
+  def require_login
+    return head(:forbidden) unless session.include? :username
+  end
 
 
 end

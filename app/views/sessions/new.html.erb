@@ -1,0 +1,15 @@
+<%= form_for(:session, url: login_path) do |f| %>
+
+  <%= f.text_field :username %><br>
+
+  <%= f.password_field :password%>
+
+  <%= f.submit "Log in" %>
+<% end %>
+<h5>or</h5>
+<h5><%= link_to "create a new account", new_user_path %></h5>
+
+
+<!-- <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout'>
+<% end %> -->
