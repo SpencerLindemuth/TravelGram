@@ -1,0 +1,8 @@
+<%= flash[:new_user_message] %>
+<%= form_tag "/authenticate", method: "post" do %>
+  <%= text_field_tag :'user[username]' %><br>
+  <%= text_field_tag :'user[password]' %><br>
+   <%= submit_tag "log in" %>
+<% end %>
+<h5>or</h5>
+<h5><%= link_to "create a new account", new_user_path %></h5>
