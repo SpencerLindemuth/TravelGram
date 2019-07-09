@@ -7,6 +7,23 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <div class="Header">
+      <span id="logo">TravelGram</span>
+      <div class="search">
+          <!-- <input type="text" placeholder="Search.." id="headersearch">
+          <input type="submit" action="<%=posts_path%>" method="GET" id="searchsubmit" value="&#8981"> -->
+          <%= form_tag("/search", method: "get", :id => 'headersearch') do %>
+          <%= text_field_tag(:q, nil, :placeholder => "Search..") %>
+          <%= submit_tag("Search")%>
+        <% end %>
+      </div>
+      <div class="menubar">
+        <span id="nav"><a href="#" id="nav">Filter</a></span>
+        <span id="nav"><a href="#" id="nav">Profile</a></span>
+        <span id="nav"><a href="#" id="nav">Logout</a></span>
+      </div>
+    </div>
   </head>
 
   <body>

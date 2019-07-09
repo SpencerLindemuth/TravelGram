@@ -6,3 +6,21 @@ img {
     max-height: 300px;
     display: inline;
 }
+
+.showbody {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    height: 750px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.showimg {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
