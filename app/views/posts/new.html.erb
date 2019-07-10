@@ -1,5 +1,9 @@
 <div class="newbackground">
     <div class="newbody">
+    <p id="flash">
+    <%=flash[:user_error]%>
+    <%flash.clear%>
+    </p>
     <h1 class="newh1">Create a new post</h1>
     </br>
     </br>
@@ -14,12 +18,14 @@
     <br>
     <%=f.text_area :caption %><br>
     <br>
-    <%=f.label "user_id"%><br>
-    <%=f.number_field :user_id, :value => 1, :class => "newinput"%><br>
+    <%=f.hidden_field :user_id, :value => current_user.id%><br>
     <br>
     <%=f.label "location_id"%><br>
     <%=f.text_field :location_id, :class => "newinput"%><br>
+    <br>
     <%=f.label "city_id"%><br>
+    <%=f.text_field :city_id, :class => "newinput"%><br>
+    <br>
     <%=f.submit%>
     <%end%>
     </div>

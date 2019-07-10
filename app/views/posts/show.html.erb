@@ -1,9 +1,25 @@
+<div id="showbackground">
 <div class="showbody">
     <div class="showimg">
-
+        <h1 id="post_username"><%=link_to @post.user.username, user_path(@post.user)%>
+            <span class="imagetag">
+                &nbsp;
+                &#8226;
+                <%=link_to @post.location.name.titleize, location_path(@post.location)%>
+                ,
+                <%=link_to @post.location.city.name.titleize, city_path(@post.location.city)%>
+            </span>
+            <br>
+            <br>
+        </h1>
+        <br>
+        <br>
         <%=image_tag(url_for(@post.avatar))%>
         <br>
+        <br>
+        <h2>
         <%=@post.caption%>
+<<<<<<< HEAD
         <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
         </br>
         </br>
@@ -15,5 +31,16 @@
         <% end %>
         <%=button_to "Delete Post", {:controller => :posts, :action => 'destroy', :post_id => @post.id}, :method => :delete%>
 
+=======
+        </h2>
+        <br>
+        <br>
+        </br>
+        </br>
+        <%if @post.user.id == current_user.id%>
+            <%=button_to "Delete Post", {:controller => :posts, :action => 'destroy', :post_id => @post.id}, :method => :delete%>
+        <%end%>
+>>>>>>> 3b5778ffb560f58cadde9285f63ec4c3db6c11aa
     </div>
+</div>
 </div>

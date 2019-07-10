@@ -17,12 +17,19 @@ img {
     display: inline;
 }
 
+#showbackground {
+    margin-top: -9px;
+    background-image: url(post_show_background.jpg);
+    overflow: auto;
+}
+
 .showbody {
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-top: 1px;
+    margin-left: 25%;
+    margin-right: 25%;
     margin-top: 5%;
     height: 750px;
-    background-color: white;
+    background-color: #F7F9F9;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
@@ -70,7 +77,34 @@ textarea {
 }
 
 .newinput {
+    text-align: center;
+    line-height: 25px;
     outline: 0px;
     border-color: transparent transparent #36494E transparent;
     border-width: 1px;
+}
+
+p#flash {
+    color: red;
+}
+
+.imagetag {
+    font-size: 15px;
+    color: #36494E;
+}
+.imagetag a{
+    font-size: 15px;
+    text-decoration: bold;
+    color: #36494E;
+}
+
+#post_username {
+    padding-left: 5%;
+    text-align: left;
+    border-bottom: 1px solid #36494E;
+}
+
+#post_username a {
+    color: #36494E;
+    text-decoration: none;
 }
