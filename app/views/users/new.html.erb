@@ -1,9 +1,12 @@
+<%= flash[:error_message] %>
 <h1>Create a New User</h1>
 <%= form_for @user do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %><br>
   <%= f.label :password %>
   <%= f.text_field :password %><br>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br>
   <%= f.label :home_city %>
   <%= f.text_field :home_city %><br>
   <%= f.label :bio %>
