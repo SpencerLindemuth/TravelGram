@@ -24,6 +24,7 @@ class PostsController < ApplicationController
                 redirect_to post_path(@post)
             else
                 flash[:user_error] = "There was an error processing your request."
+                @post = Post.new
                 render :new
             end
         else
@@ -79,7 +80,8 @@ class PostsController < ApplicationController
             params[:post][:location_id] = location_object.id
         else
             location_object = Location.create(name: location, city_id: city_object.id)
-            params[:post][:city_id] = location_object.id
+            params[:post][:location_id] = location_object.id
+            params[:post][:city_id] = city_object.id
         end
         params
     end
