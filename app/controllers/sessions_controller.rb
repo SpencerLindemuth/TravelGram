@@ -4,8 +4,10 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(username: params[:session][:username])
+    # byebug
     if user && user.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
+      log_in(user)
+      redirect_to posts_path
     else
       flash[:danger] = 'Invalid login info, please try to login again or create a new account'
       render 'new'
@@ -13,11 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if session[:username].nil?
-      redirect_to login_path
-    else
-      session.delete :username
-      redirect_to login_path
-    end
+    session.clear
+    redirect_to login_path
   end
 end

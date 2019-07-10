@@ -20,8 +20,8 @@
       </div>
       <div class="menubar">
         <span id="nav"><a href="#" id="nav">Filter</a></span>
-        <span id="nav"><a href="#" id="nav">Profile</a></span>
-        <span id="nav"><a href="#" id="nav">Logout</a></span>
+        <span id="nav"><a href="<%= user_path(current_user) %>" id="nav">Profile</a></span>
+        <span id="nav"><a href="<%= logout_path %>" id="nav">Logout</a></span>
       </div>
     </div>
   </head>

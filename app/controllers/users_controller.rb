@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :user_params, only: [:create, :update]
   before_action :require_login
+  before_action :current_user
   skip_before_action :require_login, only: [:new, :create]
 
   def new
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
       redirect_to posts_path
     else
       flash[:error_message] = "Your account has been signed up, please log in with your existing account."
-      render :travelgram
+      render :new
     end
   end
 
@@ -57,11 +58,14 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :bio, :home_city)
+    params.require(:user).permit(:username, :password, :bio, :home_city, :password_confirmation)
   end
 
   def require_login
-    return head(:forbidden) unless session.include? :username
+    # return head(:forbidden) unless session.include? :username
+    if !session[:user_id]
+      redirect_to login_path
+    end
   end
 
 
