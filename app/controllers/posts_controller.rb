@@ -2,10 +2,13 @@ class PostsController < ApplicationController
     before_action :require_login
     before_action :current_user
     def index
+        if params.has_key?(:filter)
+            @posts = filter(params)
+        end
         if params.has_key?(:q)
             @posts = search(params)
         else
-            @posts = Post.all
+            @posts = Post.all.sort_by{ |post| post.likes.count}.reverse
         end
     end
 
@@ -110,4 +113,16 @@ class PostsController < ApplicationController
         end
     end
 
+    def filter(params)
+        filter_array = []
+        filter = params[:filter]
+        case filter
+        when "newest"
+            return Post.all.sort_by{ |post| post.created_at}
+        when "liked"
+            return Post.all.sort_by{ |post| post.likes.count}.reverse
+        when "oldest"
+            return Post.all.sort_by{ |post| post.created_at}.reverse
+        end
+    end
 end
