@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    before_action :current_user
     def index
         if params.has_key?(:q)
             @posts = search(params)
@@ -8,11 +9,11 @@ class PostsController < ApplicationController
     end
 
     def new
+        byebug
         @post = Post.new
     end
 
     def create
-        #byebug
         @post = Post.new(post_params)
         if @post.save
             redirect_to post_path(@post)
