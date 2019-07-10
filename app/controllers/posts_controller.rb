@@ -13,12 +13,6 @@ class PostsController < ApplicationController
         @post = Post.new
     end
 
-<<<<<<< HEAD
-    def creat
-    @post = Post.new(post_params)
-        if @post.save
-            redirect_to post_path(@post)
-=======
     def create
         city = params[:post][:city_id].downcase
         city_object = City.find_or_create_by(name: city)
@@ -40,7 +34,6 @@ class PostsController < ApplicationController
                 flash[:user_error] = "There was an error processing your request."
                 render :new
             end
->>>>>>> 3b5778ffb560f58cadde9285f63ec4c3db6c11aa
         else
             flash[:user_error] = "There was an error processing your request."
             @post = Post.new

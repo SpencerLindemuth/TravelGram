@@ -19,7 +19,6 @@
         <br>
         <h2>
         <%=@post.caption%>
-<<<<<<< HEAD
         <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
         </br>
         </br>
@@ -31,7 +30,6 @@
         <% end %>
         <%=button_to "Delete Post", {:controller => :posts, :action => 'destroy', :post_id => @post.id}, :method => :delete%>
 
-=======
         </h2>
         <br>
         <br>
@@ -40,7 +38,6 @@
         <%if @post.user.id == current_user.id%>
             <%=button_to "Delete Post", {:controller => :posts, :action => 'destroy', :post_id => @post.id}, :method => :delete%>
         <%end%>
->>>>>>> 3b5778ffb560f58cadde9285f63ec4c3db6c11aa
     </div>
 </div>
 </div>
