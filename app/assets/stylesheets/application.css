@@ -77,13 +77,13 @@
     margin-right: 10%;
 }
 
-#nav {
+.menubar a {
     padding-left: 1%;
     color: #ECEDF6;
     text-decoration: none;
 }
 
-#nav :hover {
+.menubar a:hover {
     color: white;
     text-shadow: 1px 1px 1px 0 #ECEDF6;
 }

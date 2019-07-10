@@ -55,4 +55,10 @@ class PostsController < ApplicationController
         results_array.flatten        
     end
 
+    def require_login
+        if !session[:user_id]
+            redirect_to login_path
+        end
+    end
+
 end
