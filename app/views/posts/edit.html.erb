@@ -1,0 +1,27 @@
+<div class="newbackground">
+        <div class="newbody">
+        <p id="flash">
+        <%=flash[:user_error]%>
+        <%flash.clear%>
+        </p>
+        <h1 class="newh1">Edit post</h1>
+        </br>
+        </br>
+        <%=form_for @post do |f|%>
+        <br>
+        <%=f.label "Caption this picture!"%><br>
+        <br>
+        <%=f.text_area :caption %><br>
+        <br>
+        <%=f.hidden_field :user_id, :value => current_user.id%><br>
+        <br>
+        <%=f.label "location_id"%><br>
+        <%=f.text_field :location_id, :value => @post.location.name.titleize, :class => "newinput"%><br>
+        <br>
+        <%=f.label "city_id"%><br>
+        <%=f.text_field :city_id, :value => @post.location.city.name.titleize, :class => "newinput"%><br>
+        <br>
+        <%=f.submit%>
+        <%end%>
+        </div>
+    </div>
