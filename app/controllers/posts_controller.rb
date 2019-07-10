@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    before_action :require_login
     def index
         if params.has_key?(:q)
             @posts = search(params)
@@ -52,6 +53,12 @@ class PostsController < ApplicationController
             results_array << Post.all.select{|post| post.location.city == city}
         end
         results_array.flatten        
+    end
+
+    def require_login
+        if !session[:user_id]
+            redirect_to login_path
+        end
     end
 
 end

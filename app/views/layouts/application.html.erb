@@ -19,9 +19,11 @@
         <% end %>
       </div>
       <div class="menubar">
-        <span id="nav"><a href="#" id="nav">Filter</a></span>
-        <span id="nav"><a href="#" id="nav">Profile</a></span>
-        <span id="nav"><a href="/login" id="nav">Logout</a></span>
+        <% if logged_in? %>
+          <a href="#">Filter</a>
+          <a href="<%= user_path(current_user) %>">Profile</a>
+          <%= link_to 'Logout', logout_path, {class: 'item', method: :delete} %>
+        <% end %>
       </div>
     </div>
   </head>

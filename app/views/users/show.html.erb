@@ -1,14 +1,21 @@
-<h3><%= @user.username %></h3>
-<h5><%= @user.home_city %></h5>
-<h5><%= @user.bio %></h5>
-<%= @posts.each do |post| %>
-  <img src="<%= post.image_url %>"><br>
-  <%= @user.caption %>
-  likes<%= post.likes.count %>
-<% end %>
+<div class="grid-item">
+  <div>
+    <h3><%= @user.username %></h3>
+    <h5><%= @user.home_city %></h5>
+    <h5><%= @user.bio %></h5>
+    <%= button_to "Edit Profile", {:controller => :users,
+    :action => 'edit', :id => @user.id }, :method => :get %>
 
-<%= button_to "update", {:controller => :users,
-:action => 'edit', :id => @user.id }, :method => :get %>
+    <%= button_to "delete", {:controller => :users,
+    :action => 'destroy', :id => @user.id }, :method => :delete %>
+  </div>
 
-<%= button_to "delete", {:controller => :users,
-:action => 'destroy', :id => @user.id }, :method => :delete %>
+  <div>
+    <% @posts.each do |post| %>
+      <%=link_to image_tag(url_for(post.avatar)), post_path(post), :class => "image"%><br>
+      <%= post.caption %>
+      likes<%= post.likes.count %><br>
+    <% end %>
+  </div>
+</div>
+
