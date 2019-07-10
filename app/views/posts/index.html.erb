@@ -1,3 +1,5 @@
-<%@posts.each do |post|%>
-    <%=link_to image_tag(url_for(post.avatar)), post_path(post)%>
-<%end%>
+<div class="index">
+    <%@posts.each do |post|%>
+        <%=link_to image_tag(url_for(post.avatar)), post_path(post)%>
+    <%end%>
+</div>

@@ -21,7 +21,7 @@
       <div class="menubar">
         <span id="nav"><a href="#" id="nav">Filter</a></span>
         <span id="nav"><a href="#" id="nav">Profile</a></span>
-        <span id="nav"><a href="#" id="nav">Logout</a></span>
+        <span id="nav"><a href="/login" id="nav">Logout</a></span>
       </div>
     </div>
   </head>
@@ -29,4 +29,11 @@
   <body>
     <%= yield %>
   </body>
+  <footer>
+      <% unless current_page?(new_post_path) || current_page?(login_path) %>
+      <div class="newpost">
+          <a href="/posts/new">&#9532;</a>
+          <%end%>
+  </div>
+  </footer>
 </html>

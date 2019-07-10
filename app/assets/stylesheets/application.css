@@ -91,3 +91,30 @@
 body {
     background-color: #ECEDF6;
 }
+
+.newpost {
+    position: fixed;
+    top: 100%;
+    left: 92%;
+    margin-top: -120px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 35px;
+    float: right;
+    background-color: #FF2929;
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    color: white;
+    box-shadow: 2px, 2px, 2px, 2px, grey;
+}
+
+.newpost a {
+    text-decoration: none;
+    color: white;
+}
+
+.newpost:hover {
+    background-color: #BF1F1F;
+    box-shadow: inset 0px 0px 1px 1px white;
+}

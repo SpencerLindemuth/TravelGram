@@ -1,13 +1,26 @@
-Create a new post:
-<%=form_for @post do |f|%>
-<%=f.label "Caption this picture!"%><br>
-<%=f.text_area :caption %><br>
-<%=f.label "Upload Image:"%><br>
-<%=f.file_field :avatar %><br>
-<%=f.label "user_id"%><br>
-<%=f.text_field :user_id%><br>
-<%=f.label "location_id"%><br>
-<%=f.text_field :location_id%><br>
-<%=f.label "city_id"%><br>
-<%=f.submit%>
-<%end%>
+<div class="newbackground">
+    <div class="newbody">
+    <h1 class="newh1">Create a new post</h1>
+    </br>
+    </br>
+    <%=form_for @post do |f|%>
+    <%=f.label "Upload Image:"%><br>
+    <br>
+    <%=f.file_field :avatar , :id => "post_content"%><br>
+    <br>
+    <br>
+    <br>
+    <%=f.label "Caption this picture!"%><br>
+    <br>
+    <%=f.text_area :caption %><br>
+    <br>
+    <%=f.label "user_id"%><br>
+    <%=f.number_field :user_id, :value => 1, :class => "newinput"%><br>
+    <br>
+    <%=f.label "location_id"%><br>
+    <%=f.text_field :location_id, :class => "newinput"%><br>
+    <%=f.label "city_id"%><br>
+    <%=f.submit%>
+    <%end%>
+    </div>
+</div>

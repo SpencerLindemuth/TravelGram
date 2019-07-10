@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// .index {
+//     display: grid;
+//     grid-template-columns: repeat(4,25%);
+//     grid-auto-rows: minmax(200px, auto)
+// }
+
+// .index img {
+//     grid-column: 1/4
+// }
+
 img {
     max-height: 300px;
     display: inline;
@@ -23,4 +33,44 @@ img {
     display: block;
     padding-top: 3em;
     padding-bottom: 3em;
+}
+
+.newbackground {
+    margin-top: -9px;
+    background-image: url(new_background.jpg);
+    overflow: auto;
+}
+
+.newbody {
+    padding-top: 75px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 5%;
+    height: 500px;
+    color: #36494E;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+textarea {
+    outline: 0px;
+    font-size: 20px;
+    height: 22px;
+    width: 300px;
+    border-color: transparent transparent #36494E transparent;
+}
+
+#post_content{
+    margin-left: 75px;
+}
+
+.newh1 {
+    color: #36494E;
+}
+
+.newinput {
+    outline: 0px;
+    border-color: transparent transparent #36494E transparent;
+    border-width: 1px;
 }
