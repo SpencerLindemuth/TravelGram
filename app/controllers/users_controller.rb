@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to posts_path
     else
       flash[:error_message] = "Your account has been signed up, please log in with your existing account."
