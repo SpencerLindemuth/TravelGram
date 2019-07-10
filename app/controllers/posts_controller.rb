@@ -14,18 +14,7 @@ class PostsController < ApplicationController
     end
 
     def create
-        city = params[:post][:city_id].downcase
-        city_object = City.find_or_create_by(name: city)
-        params[:post][:city_id] = city_object.id
-        location = params[:post][:location_id].downcase
-        location_object = Location.find_by(name: location)
-        if location_object 
-            params[:post][:location_id] = location_object.id
-        else
-            location_object = Location.create(name: location, city_id: city_object.id)
-            params[:post][:city_id] = location_object.id
-        end
-        #byebug
+        city_location_params(params)
         if params[:post][:user_id].to_i == current_user.id
             @post = Post.new(post_params)
             if @post.save
@@ -38,6 +27,28 @@ class PostsController < ApplicationController
             flash[:user_error] = "There was an error processing your request."
             @post = Post.new
             render :new
+        end
+    end
+
+    def edit
+        @post = Post.find(params[:id])
+    end
+
+    def update
+        city_location_params(params) 
+        if params[:post][:user_id].to_i == current_user.id
+            @post = Post.find(params[:id])
+            params[:post][:avatar] = @post.avatar
+            if @post.update(post_params)
+                redirect_to post_path(@post)
+            else
+                flash[:user_error] = "There was an error processing your request."
+                render :edit
+            end
+        else
+            flash[:user_error] = "There was an error processing your request."
+            @post = Post.find(params[:id])
+            render :edit
         end
     end
 
@@ -54,6 +65,21 @@ class PostsController < ApplicationController
 
 
     private
+
+    def city_location_params(params)
+        city = params[:post][:city_id].downcase
+        city_object = City.find_or_create_by(name: city)
+        params[:post][:city_id] = city_object.id
+        location = params[:post][:location_id].downcase
+        location_object = Location.find_by(name: location)
+        if location_object 
+            params[:post][:location_id] = location_object.id
+        else
+            location_object = Location.create(name: location, city_id: city_object.id)
+            params[:post][:city_id] = location_object.id
+        end
+        params
+    end
 
     def post_params
         params.require(:post).permit(:caption, :image_url, :user_id, :location_id, :avatar)
