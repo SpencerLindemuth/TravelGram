@@ -1,5 +1,7 @@
 {
   "name": "TravelGram",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@material/button": "^3.0.0"
+  }
 }

@@ -13,9 +13,11 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
 * {
     margin: 0px;
     padding: 0px;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
  .Header{

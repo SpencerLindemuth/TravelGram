@@ -1,21 +1,30 @@
-<div class="grid-item">
-  <div>
-    <h3><%= @user.username %></h3>
-    <h5><%= @user.home_city %></h5>
-    <h5><%= @user.bio %></h5>
-    <%= button_to "Edit Profile", {:controller => :users,
-    :action => 'edit', :id => @user.id }, :method => :get %>
-
-    <%= button_to "delete", {:controller => :users,
-    :action => 'destroy', :id => @user.id }, :method => :delete %>
+<div id="userbody">
+<div class="grid-container">
+  <div class="grid-item" id="userinfo">
+    <h2><%= @user.username %></h2><br>
+    <h4>city: <%= @user.home_city %></h4>
+    <h4><%= @user.bio %></h4>
+    <div class="buttons">
+    <div class="button">
+      <%= button_to "Edit Profile", {:controller => :users,
+      :action => 'edit', :id => @user.id }, :method => :get %>
+    </div>
+    <div class="button">
+      <%= button_to "delete", {:controller => :users,
+      :action => 'destroy', :id => @user.id }, :method => :delete %>
+    </div>
+    </div>
   </div>
 
-  <div>
+  <div class="grid-item">
     <% @posts.each do |post| %>
+      <div class="posts">
       <%=link_to image_tag(url_for(post.avatar)), post_path(post), :class => "image"%><br>
       <%= post.caption %>
       likes<%= post.likes.count %><br>
+      </div>
     <% end %>
   </div>
+</div>
 </div>
 
