@@ -167,3 +167,18 @@ p#flash {
     color: #36494E;
     text-decoration: none;
 }
+.inputbutton {
+    background: none;
+    border: 2px solid;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 0.7em 2em;
+    color: grey;
+    border-radius: 2%;
+  }
+  
+  .inputbutton:hover,
+  .inputbutton:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+  }

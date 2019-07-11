@@ -14,8 +14,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to posts_path
     else
-      flash[:error_message] = "Your account has been signed up, please log in with your existing account."
-      render :new
+      flash[:danger] = "Your account has been signed up, please log in with your existing account."
+      redirect_to new_user_path
     end
   end
 
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def show 
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.reverse
   end
 
   def edit

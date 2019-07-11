@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to posts_path
     else
       flash[:danger] = 'Invalid login info, please try to login again or create a new account'
-      render 'new'
+      render :new
     end
   end
 

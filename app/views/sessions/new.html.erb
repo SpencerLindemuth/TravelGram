@@ -3,6 +3,7 @@
 
 <%=image_tag(url_for('login_featured_image.jpg'))%>
 <%= flash[:danger] %>
+<% flash.clear%>
 <div class="loginform">
 <%= form_for(:session, url: login_path, class: "loginform") do |f| %>
   <br>
