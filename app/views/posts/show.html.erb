@@ -17,7 +17,7 @@
         <%=image_tag(url_for(@post.avatar))%>
         <br>
         <br>
-        <h2>
+        <h3>
         <%=@post.caption%>
         </br>
         <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %><br>
@@ -27,12 +27,15 @@
           <%= link_to '♡', post_likes_path(@post), method: :post %>
         <% end %>
         <%= @post.likes.count %>
+        liked by <% @post.likes[0..1].each do |like|%>
+          <%= link_to like.user.username, user_path(like.user) %>, 
+        <% end %>
         <%if @post.user.id == current_user.id%>
             <%=button_to "Delete Post", {:controller => :posts, :action => 'destroy', :post_id => @post.id}, :method => :delete, :class => "inputbutton"%>
             <%=button_to "Edit Post", {:controller => 'posts', :action=> 'edit', :id => @post.id}, :method => :get, :class => "inputbutton"%>
         <%end%>
 
-        </h2>
+        </h3>
     </div>
 </div>
 </div>
