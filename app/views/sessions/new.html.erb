@@ -1,16 +1,24 @@
+<div class="loginbackground">
+    <div class="loginbody">
+
+<%=image_tag(url_for('login_featured_image.jpg'))%>
 <%= flash[:danger] %>
-<%= form_for(:session, url: login_path) do |f| %>
-
-  <%= f.text_field :username %><br>
-
-  <%= f.password_field :password%>
-
-  <%= f.submit "Log in" %>
+<div class="loginform">
+<%= form_for(:session, url: login_path, class: "loginform") do |f| %>
+  <br>
+  <%= f.text_field :username, placeholder: "Username"%><br>
+  <br>
+  <%= f.password_field :password, placeholder: "Password"%>
+  <br>
+  <%= f.submit "  Login  ", class: "loginbutton" %>
 <% end %>
+<br>
 <h5>or</h5>
+<br>
 <h5><%= link_to "create a new account", new_user_path %></h5>
-
-
+</div>
+    </div>
+    </div>
 <!-- <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='logout'>
 <% end %> -->

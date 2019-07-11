@@ -19,7 +19,7 @@
         <br>
         <h2>
         <%=@post.caption%>
- 
+        </br>
         <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %><br>
         <% if pre_like %>
           <%= link_to '❤️', post_like_path(@post, pre_like), method: :delete %>
@@ -27,17 +27,12 @@
           <%= link_to '♡', post_likes_path(@post), method: :post %>
         <% end %>
         <%= @post.likes.count %>
-        <%=button_to "Delete Post", {:controller => :posts, :action => 'destroy', :post_id => @post.id}, :method => :delete%>
-
-        </h2>
-        <br>
-        <br>
-        </br>
-        </br>
         <%if @post.user.id == current_user.id%>
             <%=button_to "Delete Post", {:controller => :posts, :action => 'destroy', :post_id => @post.id}, :method => :delete%>
             <%=button_to "Edit Post", {:controller => 'posts', :action=> 'edit', :id => @post.id}, :method => :get%>
         <%end%>
+
+        </h2>
     </div>
 </div>
 </div>

@@ -16,12 +16,18 @@
           <input type="submit" action="<%=posts_path%>" method="GET" id="searchsubmit" value="&#8981"> -->
           <%= form_tag("/search", method: "get", :id => 'headersearch') do %>
           <%= text_field_tag(:q, nil, :placeholder => "Search..") %>
-          <%= submit_tag("Search")%>
+          <%= submit_tag("  Search  ", class: "headersubmit")%>
         <% end %>
       </div>
       <div class="menubar">
         <% if logged_in? %>
-          <%= link_to "Filter", posts_path(:filter => "liked")%>
+          <%if !cookies[:filter] %>
+            <%= link_to "Newest Posts", posts_path(:filter => "newest" )%>
+          <%elsif cookies[:filter] = "liked"%>
+            <%= link_to "Newest Posts", posts_path(:filter => "newest")%>
+          <%elsif cookies[:filter] = "newest"%>
+            <%= link_to "Popular Posts", posts_path(:filter => "liked")%>
+          <%end%>
           <a href="<%= user_path(current_user) %>">Profile</a>
           <%= link_to 'Logout', logout_path, {class: 'item', method: :delete} %>
         <% end %>

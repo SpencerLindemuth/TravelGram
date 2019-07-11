@@ -21,7 +21,7 @@
 }
 
  .Header{
-    height: 150px;
+    height: 100px;
     background-color: #6C969D;
     color: #ECEDF6;
     margin-bottom: 10px;
@@ -29,12 +29,17 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+footer{
+    background-color: #6C969D;
+    height: 50px;
+}
+
 #logo a{
     text-decoration: none;
     color: #ECEDF6;
     position: absolute;
     font-size: 40px;
-    padding-top: 60px;
+    padding-top: 30px;
     margin-left: 10%;
 }
 
@@ -43,13 +48,35 @@
     text-indent: 8px;
     float: right;
     margin-right: 10%;
-    margin-top: 2%;
+    margin-top: 1%;
     line-height: 50px;
     height: 60px;
     width: 200px;
     border: 1px;
     border-radius: 20px;
     padding-right: 50px;
+}
+
+#headersearch input {
+    outline: 0;
+    border-color: transparent transparent #36494E transparent;
+    background-color: transparent;
+    border-width: 1px;
+    line-height: 20px;
+}
+
+#headersearch input::placeholder{
+    color: #36494E;
+}
+
+#headersearch input.headersubmit {
+    background-color: #6C969D;
+    border-color: #36494E;
+    border-radius: 6px;
+}
+
+#headersearch input.headersubmit:hover {
+    background-color: #36494E;
 }
 
 #searchsubmit{
@@ -74,9 +101,9 @@
 .menubar {
     height: 100%;
     text-align: right;
-    font-size: 30px;
-    padding-top: 95px;
-    margin-right: 10%;
+    font-size: 20px;
+    padding-top: 75px;
+    margin-right: 11%;
 }
 
 .menubar a {
@@ -91,13 +118,13 @@
 }
 
 body {
-    background-color: #ECEDF6;
+    background-color: #F7F9F9;
 }
 
 .newpost {
     position: fixed;
     top: 100%;
-    left: 92%;
+    left: 90%;
     margin-top: -120px;
     text-align: center;
     line-height: 60px;

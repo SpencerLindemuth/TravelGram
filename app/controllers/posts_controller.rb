@@ -2,13 +2,15 @@ class PostsController < ApplicationController
     before_action :require_login
     before_action :current_user
     def index
+        #byebug
         if params.has_key?(:filter)
             @posts = filter(params)
+            render :index
         end
         if params.has_key?(:q)
             @posts = search(params)
         else
-            @posts = Post.all.sort_by{ |post| post.likes.count}.reverse
+            @posts = post_sort
         end
     end
 
@@ -25,12 +27,12 @@ class PostsController < ApplicationController
             else
                 flash[:user_error] = "There was an error processing your request."
                 @post = Post.new
-                render :new
+                redirect_to new_post_path
             end
         else
             flash[:user_error] = "There was an error processing your request."
             @post = Post.new
-            render :new
+            redirect_to new_post_path
         end
     end
 
@@ -120,11 +122,29 @@ class PostsController < ApplicationController
         filter = params[:filter]
         case filter
         when "newest"
-            return Post.all.sort_by{ |post| post.created_at}
-        when "liked"
-            return Post.all.sort_by{ |post| post.likes.count}.reverse
-        when "oldest"
+            cookies[:filter] = "newest"
             return Post.all.sort_by{ |post| post.created_at}.reverse
+        when "liked"
+            cookies[:filter] = "liked"
+            return Post.all.sort_by{ |post| post.likes.count}.reverse
         end
+    end
+
+    def post_sort
+        if cookies[:filter]
+            if cookies[:filter] == "newest"
+                return Post.all.sort_by{ |post| post.created_at}.reverse
+            elsif cookies[:filter] == "liked"
+                return Post.all.sort_by{ |post| post.likes.count}.reverse
+            end
+        else
+            return Post.all.sort_by{ |post| post.likes.count}.reverse
+        end
+    end
+
+
+    def index_fit
+        post_row = Post.all.reverse
+        screen = 2000;
     end
 end
