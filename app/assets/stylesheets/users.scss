@@ -7,6 +7,7 @@
   margin-left: 20%;
   margin-right: 20%;
   margin-top: 5%;
+  margin-bottom: 12%;
   background-color: #F7F9F9;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
@@ -14,10 +15,12 @@
 
 #updatebody {
   padding-top: 75px;
+  padding-bottom: 20px;
   margin-left: 30%;
   margin-right: 30%;
   margin-top: 5%;
-  height: 500px;
+  margin-bottom: 12%;
+  height: fit-content;
   color: #36494E;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -26,10 +29,12 @@
 
 #newuserbody {
   padding-top: 75px;
+  padding-bottom: 20px;
   margin-left: 30%;
   margin-right: 30%;
   margin-top: 5%;
-  height: 500px;
+  margin-bottom: 12%;
+  height: fit-content;
   color: #36494E;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -113,6 +118,11 @@ a:hover {
 .inputbutton:focus {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   transform: translateY(-0.25em);
+}
+
+#userbio {
+  color: gray;
+  line-height: 20px;
 }
 
 

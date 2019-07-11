@@ -21,13 +21,6 @@
       </div>
       <div class="menubar">
         <% if logged_in? %>
-          <%if !cookies[:filter] %>
-            <%= link_to "Newest Posts", posts_path(:filter => "newest" )%>
-          <%elsif cookies[:filter] = "liked"%>
-            <%= link_to "Newest Posts", posts_path(:filter => "newest")%>
-          <%elsif cookies[:filter] = "newest"%>
-            <%= link_to "Popular Posts", posts_path(:filter => "liked")%>
-          <%end%>
           <a href="<%= user_path(current_user) %>">Profile</a>
           <%= link_to 'Logout', logout_path, {class: 'item', method: :delete} %>
         <% end %>

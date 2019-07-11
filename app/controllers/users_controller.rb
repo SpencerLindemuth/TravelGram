@@ -14,7 +14,13 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to posts_path
     else
-      flash[:danger] = "Your account has been signed up, please log in with your existing account."
+      if params[:user][:password].empty? || params[:user][:password_confirmation].empty?
+        flash[:danger] = "Password can't be blank."
+      elsif params[:user][:password] != params[:user][:password_confirmation]
+        flash[:danger] = "Doesn't match password."
+      else
+        flash[:danger] = "Your account has been signed up, please log in with your existing account."
+      end
       redirect_to new_user_path
     end
   end
@@ -34,7 +40,11 @@ class UsersController < ApplicationController
 
   def show 
     @user = User.find(params[:id])
-    @posts = @user.posts.reverse
+    @posts = @user.posts
+    @likes = @user.posts.map{ |post| post.likes}.flatten.count
+    @post_count = @user.posts.count
+    @location_count = @user.posts.map{ |post| post.location}.uniq.count
+    @city_count = @user.posts.map{ |post| post.location.city}.uniq.count
   end
 
   def edit

@@ -2,15 +2,20 @@ class PostsController < ApplicationController
     before_action :require_login
     before_action :current_user
     def index
-        #byebug
-        if params.has_key?(:filter)
-            @posts = filter(params)
-            render :index
-        end
         if params.has_key?(:q)
-            @posts = search(params)
+            array = search(params)
+            final_array = []
+            final_array << array[-1]
+            final_array << array[-2]
+            final_array << array[0..-3].shuffle
+            @posts = final_array.flatten
         else
-            @posts = post_sort
+            array = Post.all
+            final_array = []
+            final_array << array[-1]
+            final_array << array[-2]
+            final_array << array[0..-3].shuffle
+            @posts = final_array.flatten
         end
     end
 
@@ -115,36 +120,5 @@ class PostsController < ApplicationController
         if !session[:user_id]
             redirect_to login_path
         end
-    end
-
-    def filter(params)
-        filter_array = []
-        filter = params[:filter]
-        case filter
-        when "newest"
-            cookies[:filter] = "newest"
-            return Post.all.sort_by{ |post| post.created_at}.reverse
-        when "liked"
-            cookies[:filter] = "liked"
-            return Post.all.sort_by{ |post| post.likes.count}.reverse
-        end
-    end
-
-    def post_sort
-        if cookies[:filter]
-            if cookies[:filter] == "newest"
-                return Post.all.sort_by{ |post| post.created_at}.reverse
-            elsif cookies[:filter] == "liked"
-                return Post.all.sort_by{ |post| post.likes.count}.reverse
-            end
-        else
-            return Post.all.sort_by{ |post| post.likes.count}.reverse
-        end
-    end
-
-
-    def index_fit
-        post_row = Post.all.reverse
-        screen = 2000;
     end
 end
