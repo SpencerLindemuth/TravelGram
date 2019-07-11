@@ -190,8 +190,7 @@ box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
 transform: translateY(-0.25em);
 }
 
-.linktoimage:hover,
-.linktoimage:focus {
+.index img:hover {
 box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
 transform: translateY(-0.25em);
 }

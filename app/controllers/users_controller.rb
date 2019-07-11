@@ -17,9 +17,9 @@ class UsersController < ApplicationController
       if params[:user][:password].empty? || params[:user][:password_confirmation].empty?
         flash[:danger] = "Password can't be blank."
       elsif params[:user][:password] != params[:user][:password_confirmation]
-        flash[:danger] = "Doesn't match password."
+        flash[:danger] = "Passwords do not match."
       else
-        flash[:danger] = "Your account has been signed up, please log in with your existing account."
+        flash[:danger] = "Your account has already been signed up, please log in with your existing account."
       end
       redirect_to new_user_path
     end
