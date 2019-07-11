@@ -113,7 +113,7 @@ class PostsController < ApplicationController
         users.each do |user|
             results_array << user.posts
         end
-        results_array.flatten        
+        results_array.flatten.uniq     
     end
 
     def require_login
