@@ -2,12 +2,60 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #userbody {
-  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5%;
+  background-color: #F7F9F9;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+#updatebody {
+  padding-top: 75px;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 5%;
+  height: 500px;
+  color: #36494E;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+#newuserbody {
+  padding-top: 75px;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 5%;
+  height: 500px;
+  color: #36494E;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.container {
+  display: flex;
+  // grid-template-columns: repeat(5, 1fr);
+  // margin-left: 10%;
+  justify-content: space-between;
+}
+
+.grid-item1 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.grid-item2 {
+  grid-column-start: 5;
+  grid-column-end: 10;  
 }
 
 #userinfo {
@@ -22,6 +70,15 @@ h4 {
   text-align: center;
 }
 
+a {
+  text-decoration: none; 
+  color: black;
+}
+
+a:hover {
+  color: grey;
+}
+
 .buttons {
   display: flex;
   align-items: center;
@@ -29,8 +86,34 @@ h4 {
   padding: 10px;
 }
 
-
-.posts {
-  display: grid;
-  grid-template-columns: repeat(4, 2fr);
+.image {
+  width: 100%;
+  margin-top: 20px;
 }
+
+.inputsize {
+  font-size: 15px;
+  color: grey;
+}
+
+.inputsize:focus {
+  color: black;
+}
+
+.inputbutton {
+  background: none;
+  border: 2px solid;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 0.7em 2em;
+  color: grey;
+}
+
+.inputbutton:hover,
+.inputbutton:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+
+

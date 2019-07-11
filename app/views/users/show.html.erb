@@ -1,27 +1,29 @@
 <div id="userbody">
 <div class="grid-container">
-  <div class="grid-item" id="userinfo">
+  <div class="grid-item1" id="userinfo">
     <h2><%= @user.username %></h2><br>
-    <h4>city: <%= @user.home_city %></h4>
+    <h4>📍<%= @user.home_city.titleize %></h4>
     <h4><%= @user.bio %></h4>
     <div class="buttons">
     <div class="button">
       <%= button_to "Edit Profile", {:controller => :users,
-      :action => 'edit', :id => @user.id }, :method => :get %>
+      :action => 'edit', :id => @user.id}, :method => :get, :class => "inputbutton" %>
     </div>
     <div class="button">
-      <%= button_to "delete", {:controller => :users,
-      :action => 'destroy', :id => @user.id }, :method => :delete %>
+      <%= button_to "Delete", {:controller => :users,
+      :action => 'destroy', :id => @user.id}, :method => :delete, :class => "inputbutton", data: { confirm: 'Are you sure you want to leave us?' } %>
     </div>
     </div>
   </div>
 
-  <div class="grid-item">
+  <div class="grid-item2">
     <% @posts.each do |post| %>
       <div class="posts">
-      <%=link_to image_tag(url_for(post.avatar)), post_path(post), :class => "image"%><br>
-      <%= post.caption %>
-      likes<%= post.likes.count %><br>
+      <%=link_to image_tag(url_for(post.avatar),:class=>"image"), post_path(post) %><br>
+      <div class="container">
+        <div class="item1"><h4><%= post.caption %> &nbsp📍<%=link_to post.location.city.name.titleize, city_path(post.location.city)%></h4></div>
+        <div class="item2"><h4>❤️ <%= post.likes.count %></h4></div>
+      </div>
       </div>
     <% end %>
   </div>

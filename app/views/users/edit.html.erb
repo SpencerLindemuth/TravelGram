@@ -1,12 +1,20 @@
-<h1>Please update your profile info:</h1>
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
-  <%= f.label :password %>
-  <%= f.text_field :password %><br>
-  <%= f.label :home_city %>
-  <%= f.text_field :home_city %><br>
-  <%= f.label :bio %>
-  <%= f.text_field :bio %><br>
-  <%= f.submit %>
-<% end %>
+<div id="updatebody">
+  <h1 class="newh1">Please update your profile info:</h1>
+  <br>
+  <br>
+  <%= form_for @user do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username, :class => "newinput inputsize" %><br>
+    <br>
+    <%= f.label :password %>
+    <%= f.text_field :password, :class => "newinput inputsize" %><br>
+    <br>
+    <%= f.label :home_city %>
+    <%= f.text_field :home_city, :class => "newinput inputsize" %><br>
+    <br>
+    <%= f.label :bio %>
+    <%= f.text_area :bio, :class => "newinput inputsize" %><br>
+    <br>
+    <%= f.submit :class =>"inputbutton" %>
+  <% end %>
+</div>
