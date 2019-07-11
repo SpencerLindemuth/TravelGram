@@ -74,7 +74,11 @@
 
 #showbackground {
     margin-top: -9px;
-    background-image: url(post_show_background.jpg);
+    background: url(AdobeStock_198081475.jpeg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     height: 800px;
     overflow: auto;
 }
