@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if session[:user_id]
+      redirect_to posts_path
+    end
   end
 
   def create
@@ -9,8 +12,8 @@ class SessionsController < ApplicationController
       log_in(user)
       redirect_to posts_path
     else
-      flash[:danger] = 'Invalid login info, please try to login again or create a new account'
-      render 'new'
+      flash[:danger] = "Incorrect Username or Password"
+      redirect_to login_path
     end
   end
 

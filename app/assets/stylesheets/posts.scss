@@ -102,15 +102,18 @@
 .newbackground {
     margin-top: -9px;
     background-image: url(new_background.jpg);
+    background-size: cover;
     overflow: auto;
 }
 
 .newbody {
     padding-top: 75px;
+    padding-bottom: 20px;
     margin-left: 30%;
     margin-right: 30%;
     margin-top: 5%;
-    height: 550px;
+    margin-bottom: 12%;
+    height: fit-content;
     color: #36494E;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

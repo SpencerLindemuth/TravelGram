@@ -2,8 +2,9 @@
     <div class="loginbody">
 
 <%=image_tag(url_for('login_featured_image.jpg'))%>
-<%= flash[:danger] %>
 <div class="loginform">
+<span class="flash"><%= flash[:danger] %></span>
+<%flash.clear%>
 <%= form_for(:session, url: login_path, class: "loginform") do |f| %>
   <br>
   <%= f.text_field :username, placeholder: "Username"%><br>

@@ -35,6 +35,10 @@ class UsersController < ApplicationController
   def show 
     @user = User.find(params[:id])
     @posts = @user.posts
+    @likes = @user.posts.map{ |post| post.likes}.flatten.count
+    @post_count = @user.posts.count
+    @location_count = @user.posts.map{ |post| post.location}.uniq.count
+    @city_count = @user.posts.map{ |post| post.location.city}.uniq.count
   end
 
   def edit
