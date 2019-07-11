@@ -33,7 +33,7 @@
     <%= yield %>
   </body>
   <footer>
-      <% unless current_page?(new_post_path) || current_page?(login_path) %>
+      <% unless current_page?(new_post_path) || current_page?(login_path) || current_page?(new_user_path)%>
       <div class="newpost">
           <a href="/posts/new">&#9532;</a>
           <%end%>
