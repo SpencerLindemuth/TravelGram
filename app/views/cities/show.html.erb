@@ -1,3 +1,5 @@
-<%@city_posts.each do |post| %>
+<div class="index">
+<%@city_posts.shuffle.each do |post| %>
     <%=link_to image_tag(url_for(post.avatar)), post_path(post)%>
 <%end%>
+</div>

@@ -14,11 +14,11 @@
       <div class="search">
           <!-- <input type="text" placeholder="Search.." id="headersearch">
           <input type="submit" action="<%=posts_path%>" method="GET" id="searchsubmit" value="&#8981"> -->
+          <% if logged_in? %>
           <%= form_tag("/search", method: "get", :id => 'headersearch') do %>
           <%= text_field_tag(:q, nil, :placeholder => "Search..") %>
           <%= submit_tag("  Search  ", class: "headersubmit")%>
           <div class="menubar">
-              <% if logged_in? %>
                 <a href="<%= user_path(current_user) %>">Profile</a>
                 <%= link_to 'Logout', logout_path, {class: 'item', method: :delete} %>
               <% end %>
