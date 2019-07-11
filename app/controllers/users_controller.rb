@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   def show 
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.reverse
     @likes = @user.posts.map{ |post| post.likes}.flatten.count
     @post_count = @user.posts.count
     @location_count = @user.posts.map{ |post| post.location}.uniq.count
