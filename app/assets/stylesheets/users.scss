@@ -27,9 +27,17 @@
   text-align: center;
 }
 
+#newuserbackground{
+  margin-top: -9px;
+  height: 800px;
+  overflow: auto;
+  background-image: url(AdobeStock_244244650.jpeg);
+  background-size: cover;
+}
+
 #newuserbody {
   padding-top: 75px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   margin-left: 30%;
   margin-right: 30%;
   margin-top: 5%;

@@ -17,12 +17,12 @@
           <%= form_tag("/search", method: "get", :id => 'headersearch') do %>
           <%= text_field_tag(:q, nil, :placeholder => "Search..") %>
           <%= submit_tag("  Search  ", class: "headersubmit")%>
-        <% end %>
-      </div>
-      <div class="menubar">
-        <% if logged_in? %>
-          <a href="<%= user_path(current_user) %>">Profile</a>
-          <%= link_to 'Logout', logout_path, {class: 'item', method: :delete} %>
+          <div class="menubar">
+              <% if logged_in? %>
+                <a href="<%= user_path(current_user) %>">Profile</a>
+                <%= link_to 'Logout', logout_path, {class: 'item', method: :delete} %>
+              <% end %>
+            </div>
         <% end %>
       </div>
     </div>
