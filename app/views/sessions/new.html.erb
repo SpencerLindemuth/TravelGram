@@ -1,7 +1,7 @@
 <div class="loginbackground">
     <div class="loginbody">
 
-<%=image_tag(url_for('AdobeStock_218578006.jpeg'))%>
+<%=image_tag(url_for(asset_path 'AdobeStock_218578006.jpeg'))%>
 <div class="loginform">
 <span class="flash"><%= flash[:danger] %></span>
 <%flash.clear%>
