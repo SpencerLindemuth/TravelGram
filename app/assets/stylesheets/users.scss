@@ -1,6 +1,18 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#userbackground {
+  margin-top: -9px;
+  background: url(AdobeStock_201285247.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 800px;
+  overflow: auto;
+}
+
 #userbody {
   padding-top: 40px;
   padding-bottom: 40px;
